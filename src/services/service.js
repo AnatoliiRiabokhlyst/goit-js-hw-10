@@ -1,4 +1,4 @@
-// ---------------------IMPRTS---------------------
+// ---------------------IMPORTS---------------------
 import Notiflix from 'notiflix';
 import { fetchCountries } from './fetchCountries.js';
 import { addMarkupOfList, addMarkupOfCountryCard } from '../index.js';
@@ -6,10 +6,10 @@ import getRefsObject from './refs.js';
 
 const refs = getRefsObject();
 // --------------------FUNCTIONS--------------------
-function getDataFromInput(e) {
+function getDataFromInput(ev) {
   refs.countryCard.innerHTML = '';
   refs.countryList.innerHTML = '';
-  const value = e.target.value.trim();
+  const value = ev.target.value.trim();
 
   if (!value) {
     return;
