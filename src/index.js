@@ -15,18 +15,17 @@ refs.input.addEventListener(
   debounce(getDataFromInput, DEBOUNCE_DELAY)
 );
 
-function addMarkupOfList(data) {
-  const markup = renderList(data);
-  refs.countryCard.innerHTML = '';
+function addEmptyList(arr, markup) {
   refs.countryList.innerHTML = '';
-  refs.countryList.insertAdjacentHTML('beforeend', markup);
+  refs.countryCard.innerHTML = '';
+  arr.insertAdjacentHTML('beforeend', markup);
+}
+function addMarkupOfList(data) {
+  addEmptyList(refs.countryList, renderList(data));
 }
 
 function addMarkupOfCountryCard(data) {
-  const markup = renderCard(data);
-  refs.countryList.innerHTML = '';
-  refs.countryCard.innerHTML = '';
-  refs.countryCard.insertAdjacentHTML('beforeend', markup);
+  addEmptyList(refs.countryCard, renderCard(data));
 }
 
 export { addMarkupOfList, addMarkupOfCountryCard };
